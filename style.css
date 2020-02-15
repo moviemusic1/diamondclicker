@@ -34,5 +34,5 @@ input:hover {
 	height: 200px;
 	overflow-x: hidden;
 	overflow-y: scroll;
-	width: 700px;
+	max-width: 700px;
 }
