@@ -1,0 +1,38 @@
+html, body {
+	width: 100%;
+	overflow-x: hidden;
+	background: #f8f8f8;
+	color: #272727;
+	font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 700;
+}
+
+input {
+	padding: 20px 30px;
+	border: none;
+	margin: 20px;
+	background: #fff;
+	box-shadow: 0px 4px 10px rgba(0,0,0,0.125);
+	transition: 250ms;
+	text-transform: uppercase;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 400;
+	cursor: pointer;
+}
+
+input:hover {
+	box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+}
+
+.price {
+	background: #fff;
+	box-shadow: 0px 4px 10px rgba(0,0,0,0.125);
+	height: 200px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	width: 700px;
+}
