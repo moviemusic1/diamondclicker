@@ -1,3 +1,4 @@
+// CREATED BY HTTPS://WWW.GITHUB.COM/MOVIEMUSIC1
 var dianum = 0;
 var factor = 1;
 var diamondspan = document.querySelector('#diamondspan');
