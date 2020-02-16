@@ -19,12 +19,12 @@ var workers = {
 	one: {
 		number: 0,
 		price: 30,
-		second: 1
+		second: 10
 	},
 	two: {
 		number: 0,
 		price: 1000,
-		second: 5
+		second: 250
 	},
 	three: {
 		number: 0,
@@ -38,33 +38,33 @@ var workers = {
 	},
 	five: {
 		number: 0,
-		price: 1500000000,
-		second: 250000000
+		price: 10000000,
+		second: 250000
 	},
 	six: {
 		number: 0,
-		price: 1000000000000,
-		second: 200000000000
+		price: 1000000000,
+		second: 200000000
 	},
 	seven: {
 		number: 0,
-		price: 5000000000000000,
-		second: 50000000000000
+		price: 500000000000,
+		second: 5000000000
 	},
 	eight: {
 		number: 0,
-		price: 20000000000000000000 /* Zwanzig Trillionen */,
-		second: 8000000000000000
+		price: 20000000000000,
+		second: 800000000000
 	},
 	nine: {
 		number: 0,
-		price: 10000000000000000000000,
-		second: 500000000000000000
+		price: 100000000000000000,
+		second: 50000000000000
 	},
 	ten: {
 		number: 0,
-		price: 500000000000000000000000000000,
-		second: 100000000000000000000000000
+		price: 5000000000000000000000000,
+		second: 10000000000000000000000
 	}
 }
 
