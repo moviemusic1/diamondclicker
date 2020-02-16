@@ -15,6 +15,29 @@ var btn9 = document.querySelector('#btn9');
 var btn10 = document.querySelector('#btn10');
 var btn11 = document.querySelector('#btn11');
 var btn12 = document.querySelector('#btn12');
+
+function setCookie(name, value, days) {
+  var d = new Date();
+  d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+  var expiredate = "expires="+d.toUTCString();
+  document.cookie = name + "=" + value + ";" + expiredate + ";path=/";
+}
+
+function getCookie(title) {
+  var name = title + "=";
+  var cookies = document.cookie.split(';');
+  for(var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i];
+    while (cookie.charAt(0) == ' ') {
+      cookie = cookie.substring(1);
+    }
+    if (cookie.indexOf(name) == 0) {
+      return cookie.substring(name.length, cookie.length);
+    }
+  }
+  return "";
+}
+
 var workers = {
 	one: {
 		number: 0,
@@ -66,6 +89,12 @@ var workers = {
 		price: 5000000000000000000000000,
 		second: 10000000000000000000000
 	}
+}
+
+if(!(getCookie('diamonds') == null) && !(getCookie('factor') == null) && !(getCookie('upgrades') == null)) {
+	dianum = getCookie('diamonds');
+	factor = getCookie('factor');
+	workers = getCookie('upgrades');
 }
 
 function refreshdiamonds() {
@@ -150,6 +179,9 @@ function secondinterval() {
 	var enddia = dianum;
 	document.querySelector('#diapersecspan').innerHTML = enddia - beginningdia;
 	refreshdiamonds();
+	setCookie('diamonds', dianum, 365);
+	setCookie('factor', factor, 365);
+	setCookie('upgrades', workers, 365);
 }
 
 setInterval(function() {
