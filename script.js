@@ -16,6 +16,8 @@ var btn10 = document.querySelector('#btn10');
 var btn11 = document.querySelector('#btn11');
 var btn12 = document.querySelector('#btn12');
 
+dianum = 100000000;
+
 var workers = {
 	one: {
 		number: 0,
@@ -68,6 +70,12 @@ var workers = {
 		second: 10000000000000000000000
 	}
 }
+
+workers['one'].number = 17;
+workers['two'].number = 15;
+workers['three'].number = 11;
+workers['four'].number = 8;
+workers['five'].number = 5;
 
 function refreshdiamonds() {
 	diamondspan.innerHTML = dianum.toFixed(2);
