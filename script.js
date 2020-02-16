@@ -91,10 +91,9 @@ var workers = {
 	}
 }
 
-if(!(getCookie('diamonds') == null) && !(getCookie('factor') == null) && !(getCookie('upgrades') == null)) {
+if(getCookie('diamonds') !== null) {
 	dianum = getCookie('diamonds');
 	factor = getCookie('factor');
-	workers = getCookie('upgrades');
 }
 
 function refreshdiamonds() {
