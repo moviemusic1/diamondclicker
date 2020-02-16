@@ -94,6 +94,7 @@ var workers = {
 if(getCookie('diamonds') !== null) {
 	dianum = getCookie('diamonds');
 	factor = getCookie('factor');
+	workers = getCookie('upgrades');
 }
 
 function refreshdiamonds() {
@@ -178,6 +179,9 @@ function secondinterval() {
 	var enddia = dianum;
 	document.querySelector('#diapersecspan').innerHTML = enddia - beginningdia;
 	refreshdiamonds();
+}
+
+function saveprocess() {
 	setCookie('diamonds', dianum, 365);
 	setCookie('factor', factor, 365);
 	setCookie('upgrades', workers, 365);
