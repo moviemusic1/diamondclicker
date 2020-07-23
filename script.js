@@ -1,95 +1,94 @@
 // CREATED BY HTTPS://WWW.GITHUB.COM/MOVIEMUSIC1
-var dianum = 0;
-var factor = 1;
-var diamondspan = document.querySelector('#diamondspan');
-var factorspan = document.querySelector('#factorspan');
-var btn1 = document.querySelector('#btn1');
-var btn2 = document.querySelector('#btn2');
-var btn3 = document.querySelector('#btn3');
-var btn4 = document.querySelector('#btn4');
-var btn5 = document.querySelector('#btn5');
-var btn6 = document.querySelector('#btn6');
-var btn7 = document.querySelector('#btn7');
-var btn8 = document.querySelector('#btn8');
-var btn9 = document.querySelector('#btn9');
-var btn10 = document.querySelector('#btn10');
-var btn11 = document.querySelector('#btn11');
-var btn12 = document.querySelector('#btn12');
+let dianum = 0,
+	factor = 1,
+	displayedUpgrade = 0,
+	animating = false;
 
-var workers = {
-	one: {
-		number: 0,
-		price: 30,
-		second: 10
-	},
-	two: {
-		number: 0,
-		price: 1000,
-		second: 250
-	},
-	three: {
-		number: 0,
-		price: 20000,
-		second: 5000
-	},
-	four: {
-		number: 0,
-		price: 1000000,
-		second: 25000
-	},
-	five: {
-		number: 0,
-		price: 10000000,
-		second: 250000
-	},
-	six: {
-		number: 0,
-		price: 1000000000,
-		second: 200000000
-	},
-	seven: {
-		number: 0,
-		price: 500000000000,
-		second: 5000000000
-	},
-	eight: {
-		number: 0,
-		price: 20000000000000,
-		second: 800000000000
-	},
-	nine: {
-		number: 0,
-		price: 100000000000000000,
-		second: 50000000000000
-	},
-	ten: {
-		number: 0,
-		price: 5000000000000000000000000,
-		second: 10000000000000000000000
+let select = element => document.querySelector(element);
+
+function add_at_n(str, n) {
+	var a = [];
+	var len, i;
+
+	for(i = 0, len = str.length; i < len; i += n) {
+		a.push(str.substr(i, n));
 	}
+
+	return a;
+};
+
+function largeUnits(r) {
+	const units = ['k', ' Mio.', ' Bio.', ' Trio.', ' Quad.', ' Quin.', ' Sext.', ' Sept.', ' Octi.', ' Noni.', ' Deci.', ' Unde.', ' Duod.', ' Tred.', ' Quatt.', ' Quind.', ' Sex.', ' Sept.', ' Octo.', ' Novem.', ' Vigin.'];
+	r = Number(r);
+
+	for(var i = 0; i < units.length; i++) {
+		if(r >= Number("1" + "0".repeat(3 * (i + 1))) && r < Number("1" + "0".repeat(3 * (i + 2)))) {
+			return (r / Number("1" + "0".repeat(3 * (i + 1)))).toFixed(1) + units[i];
+		}
+	}
+
+	if(r < 1000) {
+		return r;
+	}
+
+	if(r >= Number("1" + "0".repeat(3 * (units.length + 1)))) {
+		if(Number(r / Number("1" + "0".repeat(3 * (units.length)))).toFixed(1) >= 1000000) {
+			if(r == 'Infinity') {
+				return 'Infinite';
+			} else {
+				if(r.toString().includes('e+')) {
+					return Number((r).toString().split('e+')[0]).toFixed(1) + 'e+' + (r).toString().split('e+')[1];
+				} else {
+					return r;
+				}
+			}
+		} else {
+			return (r / Number("1" + "0".repeat(3 * (units.length)))).toFixed(1) + units[units.length - 1];
+		}
+	}
+};
+
+const diamondspan = select('#diamondspan');
+const diapersecspan = select('#diapersecspan');
+const upgradeName = select('.upgrade-name');
+const upgradePrice = select('.upgrade-price');
+const upgradeNumber = select('.upgrade-number');
+
+let btns = [],
+	btn_default_values = ['Get diamonds', 'Upgrade button', 'Miner', 'Upgraded miner', 'Golden miner', 'Magician', 'Scientist', 'Mining robot', 'Expert miner group', 'Mining machine', 'Upgraded mining machine', 'Ultimate diamond maker'],
+	written_nums = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
+
+for(let i = 1; i < 13; i++) {
+	btns.push(select('#btn' + i));
 }
+
+let workers = {
+	one: 	{ number: 0, price: 30, 						second: 10, 						name: 'Miner' },
+	two: 	{ number: 0, price: 1000, 						second: 250, 						name: 'Upgraded miner' },
+	three: 	{ number: 0, price: 20000, 						second: 5000, 						name: 'Golden miner' },
+	four: 	{ number: 0, price: 1000000, 					second: 25000, 						name: 'Magician' },
+	five: 	{ number: 0, price: 10000000, 					second: 250000, 					name: 'Scientist' },
+	six: 	{ number: 0, price: 1000000000, 				second: 200000000, 					name: 'Mining robot' },
+	seven: 	{ number: 0, price: 500000000000, 				second: 5000000000, 				name: 'Expert miner group' },
+	eight: 	{ number: 0, price: 20000000000000, 			second: 800000000000, 				name: 'Mining machine' },
+	nine: 	{ number: 0, price: 100000000000000000, 		second: 50000000000000, 			name: 'Upgraded mining machine' },
+	ten: 	{ number: 0, price: 5000000000000000000000000, 	second: 10000000000000000000000, 	name: 'Ultimate diamond maker' }
+};
 
 function refreshdiamonds() {
-	diamondspan.innerHTML = dianum.toFixed(2);
-	factorspan.innerHTML = factor.toFixed(2);
-	btn1.value = "Get diamonds | " + factor;
-	btn2.value = "Upgrade button | " + factor * factor;
-	btn3.value = "Miner | " + workers['one'].number;
-	btn4.value = "Upgraded miner | " + workers['two'].number;
-	btn5.value = "Golden miner | " + workers['three'].number;
-	btn6.value = "Magician | " + workers['four'].number;
-	btn7.value = "Scientist | " + workers['five'].number;
-	btn8.value = "Mining robot | " + workers['six'].number;
-	btn9.value = "One of the best miners ever | " + workers['seven'].number;
-	btn10.value = "Mining machine | " + workers['eight'].number;
-	btn11.value = "Upgraded mining machine | " + workers['nine'].number;
-	btn12.value = "Ultimate diamond maker | " + workers['ten'].number;
-}
+	diamondspan.innerHTML = largeUnits(Number(dianum.toFixed()));
+
+	btns[0].value = btn_default_values[0] + ' | ' + factor;
+	btns[1].value = btn_default_values[1] + ' | ' + factor * factor;
+	/*for(let i = 0; i < 10; i++) {
+		btns[i + 2].value = btn_default_values[i + 2] + ' | ' + workers[written_nums[i]].number;
+	}*/
+};
 
 function buttondiamond() {
 	dianum += factor;
 	refreshdiamonds();
-}
+};
 
 function upgradebutton() {
 	if(dianum >= factor * factor) {
@@ -97,60 +96,111 @@ function upgradebutton() {
 		factor += 1;
 	}
 	refreshdiamonds();
-}
+};
 
-function buy(num) {
-	if(workers[num] == null) {
-		alert("Error.");
+function buy() {
+	if(workers[written_nums[displayedUpgrade]] == null) {
+		console.log(workers[written_nums[displayedUpgrade]]);
 	} else {
-		if(dianum >= workers[num].price) {
-			dianum -= workers[num].price;
-			workers[num].number += 1;
+		if(dianum >= workers[written_nums[displayedUpgrade]].price) {
+			dianum -= workers[written_nums[displayedUpgrade]].price;
+			workers[written_nums[displayedUpgrade]].number += 1;
 			refreshdiamonds();
-			higherprice(num);
+			higherprice(written_nums[displayedUpgrade]);
+			select('.upgradeplus').classList.add('pressed_plus');
+			setTimeout(() => { select('.upgradeplus').classList.remove('pressed_plus'); }, 300);
 		} else {
 			alert("Not enough diamonds!");
 		}
 	}
-}
+};
 
 function higherprice(num) {
 	if(workers[num] == null) {
 		alert("Error.");
 	} else {
-		workers[num].price = workers[num].price + workers[num].price * workers[num].number * 0.2;
+		//workers[num].price = realFixedExcept(Number((workers[num].price + workers[num].price * workers[num].number * 0.2).toFixed()), calcExcept(workers[num].price.toString().length));
+		workers[num].price = Number((workers[num].price + workers[num].price * workers[num].number * 0.2).toFixed());
 		refreshprice();
+	}
+};
+
+function refreshprice() {
+	/*for(let i = 0; i < 10; i++) {
+		document.querySelectorAll('.price')[i].innerHTML = largeUnits(workers[written_nums[i]].price);
+	}*/
+
+	upgradeNumber.innerHTML = largeUnits(workers[written_nums[displayedUpgrade]].number);
+	upgradePrice.innerHTML = largeUnits(workers[written_nums[displayedUpgrade]].price);
+};
+
+function secondinterval() {
+	if(dianum > 1.7976931e+308) {
+		dianum = 1.7976931e+308;
+	}
+	/*let beginningdia = dianum;
+	for(let i = 0; i < 10; i++) {
+		dianum += workers[written_nums[i]].second * workers[written_nums[i]].number;
+	}
+	let enddia = dianum;
+	diapersecspan.innerHTML = largeUnits(enddia - beginningdia);*/
+
+	let diapersec = 0;
+	for(let i = 0; i < 10; i++) {
+		dianum += workers[written_nums[i]].second * workers[written_nums[i]].number;
+		diapersec += workers[written_nums[i]].second * workers[written_nums[i]].number;
+	}
+	diapersecspan.innerHTML = largeUnits(diapersec);
+	refreshdiamonds();
+};
+
+function initUpgrades() {
+	if(displayedUpgrade !== null) {
+		upgradeName.innerText = workers[written_nums[displayedUpgrade]].name;
+		upgradeNumber.innerText = workers[written_nums[displayedUpgrade]].number;
+		upgradePrice.innerHTML = largeUnits(workers[written_nums[displayedUpgrade]].price);
 	}
 }
 
-function refreshprice() {
-	document.querySelector('#price1').innerHTML = workers['one'].price;
-	document.querySelector('#price2').innerHTML = workers['two'].price;
-	document.querySelector('#price3').innerHTML = workers['three'].price;
-	document.querySelector('#price4').innerHTML = workers['four'].price;
-	document.querySelector('#price5').innerHTML = workers['five'].price;
-	document.querySelector('#price6').innerHTML = workers['six'].price;
-	document.querySelector('#price7').innerHTML = workers['seven'].price;
-	document.querySelector('#price8').innerHTML = workers['eight'].price;
-	document.querySelector('#price9').innerHTML = workers['nine'].price;
-	document.querySelector('#price10').innerHTML = workers['ten'].price;
-}
+function changeUpgrade(mode) {
+	if(mode && displayedUpgrade > 0 && animating == false) {
+		displayedUpgrade -= 1;
+		animating = true;
+		upgradeName.style.animation = "middleToBottom 0.2s linear";
+		upgradePrice.style.animation = "middleToBottom 0.2s linear";
+		setTimeout(() => {
+			upgradeName.style.animation = "topToMiddle 0.2s linear";
+			upgradePrice.style.animation = "topToMiddle 0.2s linear";
+			upgradeName.innerText = workers[written_nums[displayedUpgrade]].name;
+			upgradeNumber.innerText = workers[written_nums[displayedUpgrade]].number;
+			upgradePrice.innerHTML = largeUnits(workers[written_nums[displayedUpgrade]].price);
+			setTimeout(() => { animating = false; }, 200);
+		}, 200);
+	} else if(!mode && displayedUpgrade < Object.keys(workers).length - 1 && animating == false) {
+		displayedUpgrade += 1;
+		animating = true;
+		upgradeName.style.animation = "middleToTop 0.2s linear";
+		upgradePrice.style.animation = "middleToTop 0.2s linear";
+		setTimeout(() => {
+			upgradeName.style.animation = "bottomToMiddle 0.2s linear";
+			upgradePrice.style.animation = "bottomToMiddle 0.2s linear";
+			upgradeName.innerText = workers[written_nums[displayedUpgrade]].name;
+			upgradeNumber.innerText = workers[written_nums[displayedUpgrade]].number;
+			upgradePrice.innerHTML = largeUnits(workers[written_nums[displayedUpgrade]].price);
+			setTimeout(() => { animating = false; }, 200);
+		}, 200);
+	}
+};
 
-function secondinterval() {
-	var beginningdia = dianum;
-	dianum += workers['one'].second*workers['one'].number;
-	dianum += workers['two'].second*workers['two'].number;
-	dianum += workers['three'].second*workers['three'].number;
-	dianum += workers['four'].second*workers['four'].number;
-	dianum += workers['five'].second*workers['five'].number;
-	dianum += workers['six'].second*workers['six'].number;
-	dianum += workers['seven'].second*workers['seven'].number;
-	dianum += workers['eight'].second*workers['eight'].number;
-	dianum += workers['nine'].second*workers['nine'].number;
-	dianum += workers['ten'].second*workers['ten'].number;
-	var enddia = dianum;
-	document.querySelector('#diapersecspan').innerHTML = enddia - beginningdia;
-	refreshdiamonds();
+function keyListener(e) {
+	switch(e.keyCode) {
+		case 38:
+			changeUpgrade(true);
+			break;
+		case 40:
+			changeUpgrade(false);
+			break;
+	}
 }
 
 setInterval(function() {
@@ -158,3 +208,9 @@ setInterval(function() {
 }, 1000);
 
 refreshprice();
+initUpgrades();
+
+select('.upgradeplus').addEventListener('click', () => { buy() });
+select('.upgradeup').addEventListener('click', () => { changeUpgrade(true) });
+select('.upgradedown').addEventListener('click', () => { changeUpgrade(false) });
+document.addEventListener('keyup', keyListener);
