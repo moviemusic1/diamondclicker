@@ -1,6 +1,6 @@
 html, body {
   width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   background: #fff;
   color: #272727;
   font-family: 'Poppins', sans-serif;
@@ -34,26 +34,6 @@ html, body {
 }
 
 .nojs .nojs-inner {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
-.screenTooSmall {
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 110;
-  overflow: hidden;
-  display: none;
-}
-
-.screenTooSmall .screenTooSmall_inner {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -116,17 +96,6 @@ html, body {
   background: white;
   position: relative;
   width: 700px;
-  /*.upgrades:hover > .upgradebg {
-            top: 100%;
-        }
-        
-        .upgrades:hover > .upgradeup, .upgrades:hover > .upgradedown {
-            border-color: black;
-        }
-        
-        .upgrades:hover > h3 span:nth-child(2) {
-            color: #555;
-        }*/
 }
 
 .middle .upgrades h3, .middle .upgrades span {
@@ -391,18 +360,6 @@ input:hover {
   }
 }
 
-@media (max-width: 650px) {
-  .screenTooSmall {
-    display: block !important;
-  }
-}
-
-@media (max-height: 680px) {
-  .screenTooSmall {
-    display: block !important;
-  }
-}
-
 @media (max-width: 750px) {
   .upgrades {
     width: 550px !important;
@@ -415,6 +372,7 @@ input:hover {
 @media (max-width: 600px) {
   .upgrades {
     width: 500px !important;
+    margin-bottom: 80px;
   }
   .btn {
     width: 80%;
@@ -422,6 +380,10 @@ input:hover {
   }
   .header h1 {
     font-size: 30px;
+  }
+  .number h1 {
+    font-size: 90px;
+    margin-bottom: 90px;
   }
 }
 
@@ -435,18 +397,34 @@ input:hover {
   .upgrades {
     width: 400px !important;
   }
+  .upgrade-name, .upgrade-price {
+    font-size: 17px !important;
+    width: 90px;
+  }
 }
 
 @media (max-width: 460px) {
   .upgrades {
     width: 330px !important;
+    margin-bottom: 100px;
   }
   .middle {
     margin: 100px 0;
   }
   .numbers h1 {
-    font-size: 20px !important;
-    margin-top: 100px;
+    font-size: 100px !important;
+    margin-top: -100px;
+    padding-top: -100px;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+  }
+  .numbers h3 {
+    font-size: 16px !important;
+  }
+  input {
+    font-size: 12px;
+    margin: 10px !important;
+    height: 70%;
   }
 }
 
@@ -462,11 +440,24 @@ input:hover {
   .upgrades {
     width: 250px !important;
   }
+  .upgrade-name {
+    margin-left: 5px;
+  }
+  .upgrade-name, .upgrade-price {
+    font-size: 15px !important;
+    width: 70px;
+  }
 }
 
 @media (max-width: 250px) {
   .upgrades {
-    width: 150px !important;
+    width: 200px !important;
+  }
+  .upgrade-name {
+    margin-left: 5px;
+  }
+  .upgrade-name, .upgrade-price {
+    font-size: 13px !important;
+    width: 50px;
   }
 }
-/*# sourceMappingURL=style.css.map */
