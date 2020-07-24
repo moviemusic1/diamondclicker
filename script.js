@@ -80,9 +80,6 @@ function refreshdiamonds() {
 
 	btns[0].value = btn_default_values[0] + ' | ' + factor;
 	btns[1].value = btn_default_values[1] + ' | ' + factor * factor;
-	/*for(let i = 0; i < 10; i++) {
-		btns[i + 2].value = btn_default_values[i + 2] + ' | ' + workers[written_nums[i]].number;
-	}*/
 };
 
 function buttondiamond() {
@@ -119,17 +116,12 @@ function higherprice(num) {
 	if(workers[num] == null) {
 		alert("Error.");
 	} else {
-		//workers[num].price = realFixedExcept(Number((workers[num].price + workers[num].price * workers[num].number * 0.2).toFixed()), calcExcept(workers[num].price.toString().length));
 		workers[num].price = Number((workers[num].price + workers[num].price * workers[num].number * 0.2).toFixed());
 		refreshprice();
 	}
 };
 
 function refreshprice() {
-	/*for(let i = 0; i < 10; i++) {
-		document.querySelectorAll('.price')[i].innerHTML = largeUnits(workers[written_nums[i]].price);
-	}*/
-
 	upgradeNumber.innerHTML = largeUnits(workers[written_nums[displayedUpgrade]].number);
 	upgradePrice.innerHTML = largeUnits(workers[written_nums[displayedUpgrade]].price);
 };
@@ -138,13 +130,7 @@ function secondinterval() {
 	if(dianum > 1.7976931e+308) {
 		dianum = 1.7976931e+308;
 	}
-	/*let beginningdia = dianum;
-	for(let i = 0; i < 10; i++) {
-		dianum += workers[written_nums[i]].second * workers[written_nums[i]].number;
-	}
-	let enddia = dianum;
-	diapersecspan.innerHTML = largeUnits(enddia - beginningdia);*/
-
+	
 	let diapersec = 0;
 	for(let i = 0; i < 10; i++) {
 		dianum += workers[written_nums[i]].second * workers[written_nums[i]].number;
