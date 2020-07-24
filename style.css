@@ -254,6 +254,10 @@ html, body {
   color: white;
 }
 
+.header, .bottom {
+  opacity: 0.7;
+}
+
 h1 {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
