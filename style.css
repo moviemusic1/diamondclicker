@@ -41,6 +41,26 @@ html, body {
           transform: translate(-50%, -50%);
 }
 
+.screenTooSmall {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 110;
+  overflow: hidden;
+  display: none;
+}
+
+.screenTooSmall .screenTooSmall_inner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
 .header {
   background: #fff;
   -webkit-box-shadow: 0 1.9rem 3.8rem rgba(0, 0, 0, 0.1);
@@ -371,7 +391,19 @@ input:hover {
   }
 }
 
-@media only screen and (max-width: 750px) {
+@media (max-width: 650px) {
+  .screenTooSmall {
+    display: block !important;
+  }
+}
+
+@media (max-height: 680px) {
+  .screenTooSmall {
+    display: block !important;
+  }
+}
+
+@media (max-width: 750px) {
   .upgrades {
     width: 550px !important;
   }
@@ -380,7 +412,7 @@ input:hover {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .upgrades {
     width: 500px !important;
   }
@@ -393,7 +425,7 @@ input:hover {
   }
 }
 
-@media only screen and (max-width: 530px) {
+@media (max-width: 530px) {
   .bottom p a {
     padding: 5px;
   }
@@ -405,7 +437,20 @@ input:hover {
   }
 }
 
-@media only screen and (max-width: 350px) {
+@media (max-width: 460px) {
+  .upgrades {
+    width: 330px !important;
+  }
+  .middle {
+    margin: 100px 0;
+  }
+  .numbers h1 {
+    font-size: 20px !important;
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 350px) {
   .bottom {
     height: 100px;
   }
@@ -414,4 +459,14 @@ input:hover {
     padding-top: 30px;
     padding-bottom: 30px;
   }
+  .upgrades {
+    width: 250px !important;
+  }
 }
+
+@media (max-width: 250px) {
+  .upgrades {
+    width: 150px !important;
+  }
+}
+/*# sourceMappingURL=style.css.map */
