@@ -63,15 +63,15 @@ for(let i = 1; i < 13; i++) {
 }
 
 let workers = {
-	one: 	{ number: 0, price: 30, 						second: 10, 						name: 'Miner' },
-	two: 	{ number: 0, price: 1000, 						second: 250, 						name: 'Upgraded miner' },
-	three: 	{ number: 0, price: 20000, 						second: 5000, 						name: 'Golden miner' },
-	four: 	{ number: 0, price: 1000000, 					second: 25000, 						name: 'Magician' },
-	five: 	{ number: 0, price: 10000000, 					second: 250000, 					name: 'Scientist' },
-	six: 	{ number: 0, price: 1000000000, 				second: 200000000, 					name: 'Mining robot' },
-	seven: 	{ number: 0, price: 500000000000, 				second: 5000000000, 				name: 'Expert miner group' },
-	eight: 	{ number: 0, price: 20000000000000, 			second: 800000000000, 				name: 'Mining machine' },
-	nine: 	{ number: 0, price: 100000000000000000, 		second: 50000000000000, 			name: 'Upgraded mining machine' },
+	one: 	{ number: 0, price: 30, 			second: 10, 				name: 'Miner' },
+	two: 	{ number: 0, price: 1000, 			second: 250, 				name: 'Upgraded miner' },
+	three: 	{ number: 0, price: 20000, 			second: 5000, 				name: 'Golden miner' },
+	four: 	{ number: 0, price: 1000000, 			second: 25000, 				name: 'Magician' },
+	five: 	{ number: 0, price: 10000000, 			second: 250000, 			name: 'Scientist' },
+	six: 	{ number: 0, price: 1000000000,			second: 200000000, 			name: 'Mining robot' },
+	seven: 	{ number: 0, price: 500000000000, 		second: 5000000000, 			name: 'Expert miner group' },
+	eight: 	{ number: 0, price: 20000000000000, 		second: 800000000000, 			name: 'Mining machine' },
+	nine: 	{ number: 0, price: 100000000000000000, 	second: 50000000000000, 		name: 'Upgraded mining machine' },
 	ten: 	{ number: 0, price: 5000000000000000000000000, 	second: 10000000000000000000000, 	name: 'Ultimate diamond maker' }
 };
 
