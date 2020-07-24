@@ -1,6 +1,6 @@
 html, body {
   width: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
   background: #fff;
   color: #272727;
   font-family: 'Poppins', sans-serif;
@@ -48,7 +48,7 @@ html, body {
   -webkit-transition: 250ms ease;
   transition: 250ms ease;
   width: 100%;
-  padding: 5px;
+  padding: 3px;
   left: 0;
   top: 0;
   z-index: 99;
@@ -75,7 +75,8 @@ html, body {
 }
 
 .middle .numbers h1 {
-  font-size: 120px;
+  font-size: 100px;
+  margin-top: 200px;
 }
 
 .middle .numbers h3 {
@@ -96,6 +97,7 @@ html, body {
   background: white;
   position: relative;
   width: 700px;
+  margin-bottom: 100px;
 }
 
 .middle .upgrades h3, .middle .upgrades span {
@@ -381,9 +383,17 @@ input:hover {
   .header h1 {
     font-size: 30px;
   }
-  .number h1 {
-    font-size: 90px;
-    margin-bottom: 90px;
+  .numbers h1 {
+    font-size: 80px !important;
+    margin-top: 50px;
+    padding-top: 50px;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+  }
+  input {
+    font-size: 12px;
+    margin: 10px !important;
+    height: 70%;
   }
 }
 
@@ -412,7 +422,7 @@ input:hover {
     margin: 100px 0;
   }
   .numbers h1 {
-    font-size: 100px !important;
+    font-size: 85px !important;
     margin-top: -100px;
     padding-top: -100px;
     margin-bottom: 40px;
@@ -421,21 +431,16 @@ input:hover {
   .numbers h3 {
     font-size: 16px !important;
   }
-  input {
-    font-size: 12px;
-    margin: 10px !important;
-    height: 70%;
-  }
 }
 
 @media (max-width: 350px) {
   .bottom {
-    height: 100px;
+    height: 80px;
   }
   .header h1 {
     font-size: 25px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
   .upgrades {
     width: 250px !important;
