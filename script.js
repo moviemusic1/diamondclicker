@@ -77,8 +77,8 @@ let workers = {
 function refreshdiamonds() {
 	diamondspan.innerHTML = largeUnits(Number(dianum.toFixed()));
 
-	btns[0].value = btn_default_values[0] + ' | ' + factor;
-	btns[1].value = btn_default_values[1] + ' | ' + factor * factor;
+	btns[0].value = factor;
+	btns[1].value = factor * factor;
 };
 
 function buttondiamond() {
