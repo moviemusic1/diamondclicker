@@ -132,8 +132,8 @@ function secondinterval() {
 
 	let diapersec = 0;
 	for(let i = 0; i < 10; i++) {
-		dianum += workers[written_nums[i]].second * workers[written_nums[i]].number;
-		diapersec += workers[written_nums[i]].second * workers[written_nums[i]].number;
+		dianum += (workers[written_nums[i]].second * workers[written_nums[i]].number) / 10;
+		diapersec += (workers[written_nums[i]].second * workers[written_nums[i]].number) / 10;
 	}
 	diapersecspan.innerHTML = largeUnits(diapersec);
 	refreshdiamonds();
@@ -190,7 +190,7 @@ function keyListener(e) {
 
 setInterval(function() {
 	secondinterval();
-}, 1000);
+}, 100);
 
 refreshprice();
 initUpgrades();

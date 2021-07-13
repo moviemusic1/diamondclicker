@@ -92,6 +92,7 @@ html, body {
   position: relative;
   width: 700px;
   margin-bottom: 100px;
+  overflow: hidden;
 }
 
 .middle .upgrades h3, .middle .upgrades span {
@@ -225,24 +226,24 @@ h1 {
 input {
   padding: 20px 30px;
   margin: 20px 5px;
-  background: #fff;
-  color: #000;
+  background: black;
+  color: whitesmoke;
   -webkit-transition: 250ms ease;
   transition: 250ms ease;
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
   cursor: pointer;
-  border: 3px solid transparent;
-  width: calc(50% - 20px);
+  border: 3px solid black;
+  border-radius: 20px;
   height: 80px;
-  font-size: 13px;
+  font-size: 17px;
   -webkit-box-shadow: 0 1.9rem 3.8rem rgba(0, 0, 0, 0.1);
           box-shadow: 0 1.9rem 3.8rem rgba(0, 0, 0, 0.1);
 }
 
 input:hover {
-  background: black;
-  color: white;
+  background: whitesmoke;
+  color: black;
 }
 
 .btns {
