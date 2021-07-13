@@ -78,8 +78,12 @@ html, body {
   margin-top: -90px;
 }
 
-.middle .upgrades {
+.upgrades {
   height: 100px;
+  width: 700px;
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
   -webkit-box-shadow: 0 1.9rem 3.8rem rgba(0, 0, 0, 0.1);
           box-shadow: 0 1.9rem 3.8rem rgba(0, 0, 0, 0.1);
   -webkit-user-select: none;
@@ -89,19 +93,16 @@ html, body {
   -webkit-transition: 250ms ease;
   transition: 250ms ease;
   background: white;
-  position: relative;
-  width: 700px;
-  margin-bottom: 100px;
   overflow: hidden;
 }
 
-.middle .upgrades h3, .middle .upgrades span {
+.upgrades h3, .upgrades span {
   z-index: 2;
   -webkit-transition: 250ms ease;
   transition: 250ms ease;
 }
 
-.middle .upgrades .upgrade-name {
+.upgrades .upgrade-name {
   position: absolute;
   left: 25%;
   top: 50%;
@@ -110,7 +111,7 @@ html, body {
   color: #555;
 }
 
-.middle .upgrades .upgrade-number {
+.upgrades .upgrade-number {
   position: absolute;
   left: 5%;
   bottom: 30%;
@@ -120,7 +121,7 @@ html, body {
   font-weight: normal;
 }
 
-.middle .upgrades .upgrade-price {
+.upgrades .upgrade-price {
   position: absolute;
   right: 25%;
   top: 50%;
@@ -129,7 +130,7 @@ html, body {
   color: #ddd;
 }
 
-.middle .upgrades .upgradeup, .middle .upgrades .upgradedown {
+.upgrades .upgradeup, .upgrades .upgradedown {
   width: 10px;
   height: 10px;
   border-top: 5px solid;
@@ -143,24 +144,24 @@ html, body {
   transition: 250ms ease;
 }
 
-.middle .upgrades .upgradeup:hover, .middle .upgrades .upgradedown:hover {
+.upgrades .upgradeup:hover, .upgrades .upgradedown:hover {
   border-color: #bbb;
   opacity: 0.5;
 }
 
-.middle .upgrades .upgradeup {
+.upgrades .upgradeup {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
   top: 30%;
 }
 
-.middle .upgrades .upgradedown {
+.upgrades .upgradedown {
   -webkit-transform: rotate(135deg);
           transform: rotate(135deg);
   bottom: 30%;
 }
 
-.middle .upgrades .upgradeplus {
+.upgrades .upgradeplus {
   width: 40px;
   height: 40px;
   background: #fff;
@@ -176,11 +177,11 @@ html, body {
   transition: 250ms ease;
 }
 
-.middle .upgrades .upgradeplus:hover {
+.upgrades .upgradeplus:hover {
   opacity: 0.8;
 }
 
-.middle .upgrades .upgradeplus div {
+.upgrades .upgradeplus div {
   width: 20px;
   height: 3px;
   background: black;
@@ -192,12 +193,12 @@ html, body {
           transform: translate(-50%, -50%);
 }
 
-.middle .upgrades .upgradeplus div:nth-child(2) {
+.upgrades .upgradeplus div:nth-child(2) {
   -webkit-transform: translate(-50%, -50%) rotate(90deg);
           transform: translate(-50%, -50%) rotate(90deg);
 }
 
-.middle .upgrades .upgradebg {
+.upgrades .upgradebg {
   background: black;
   width: 50%;
   height: 100px;
@@ -209,7 +210,7 @@ html, body {
   transition: 250ms ease;
 }
 
-.middle .upgrades .upgradeborder {
+.upgrades .upgradeborder {
   border-right: 0px solid black;
   width: 50%;
   height: 100%;
