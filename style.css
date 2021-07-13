@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 700;
+  src: url('font/Poppins-Black.ttf')
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 400;
+  src: url('font/Poppins-Regular.ttf')
+}
+
 html, body {
   width: 100%;
   overflow-x: hidden;

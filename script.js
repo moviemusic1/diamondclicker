@@ -1,4 +1,3 @@
-// CREATED BY HTTPS://WWW.GITHUB.COM/MOVIEMUSIC1
 let dianum = 0,
 	factor = 1,
 	displayedUpgrade = 0,
@@ -130,7 +129,7 @@ function secondinterval() {
 	if(dianum > 1.7976931e+308) {
 		dianum = 1.7976931e+308;
 	}
-	
+
 	let diapersec = 0;
 	for(let i = 0; i < 10; i++) {
 		dianum += workers[written_nums[i]].second * workers[written_nums[i]].number;
