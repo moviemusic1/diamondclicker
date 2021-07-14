@@ -1,19 +1,13 @@
 @font-face {
-  font-family: "Poppins";
-  font-weight: 700;
-  src: url("font/Poppins-Black.ttf");
-}
-@font-face {
-  font-family: "Poppins";
-  font-weight: 400;
-  src: url("font/Poppins-Regular.ttf");
+  font-family: "Uchen";
+  src: url("font/Uchen-Regular.ttf");
 }
 html, body {
   width: 100%;
   overflow-x: hidden;
   background: #fff;
   color: #272727;
-  font-family: "Poppins", sans-serif;
+  font-family: "Uchen", serif;
   min-height: 100%;
 }
 
@@ -200,7 +194,6 @@ html, body {
 }
 
 h1 {
-  font-family: "Poppins", sans-serif;
   font-weight: 700;
 }
 
@@ -211,7 +204,7 @@ input {
   color: whitesmoke;
   -webkit-transition: 250ms ease;
   transition: 250ms ease;
-  font-family: "Poppins", sans-serif;
+  font-family: "Uchen", serif;
   font-weight: 800;
   cursor: pointer;
   border: 3px solid black;

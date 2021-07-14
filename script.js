@@ -151,11 +151,11 @@ function changeUpgrade(mode) {
 	if(mode && displayedUpgrade > 0 && animating == false) {
 		displayedUpgrade -= 1;
 		animating = true;
-		upgradeName.style.animation = "middleToBottom 0.2s linear";
-		upgradePrice.style.animation = "middleToBottom 0.2s linear";
+		upgradeName.style.animation = "middleToBottom 0.1s linear";
+		upgradePrice.style.animation = "middleToBottom 0.1s linear";
 		setTimeout(() => {
-			upgradeName.style.animation = "topToMiddle 0.2s linear";
-			upgradePrice.style.animation = "topToMiddle 0.2s linear";
+			upgradeName.style.animation = "topToMiddle 0.1s linear";
+			upgradePrice.style.animation = "topToMiddle 0.1s linear";
 			upgradeName.innerText = workers[written_nums[displayedUpgrade]].name;
 			upgradeNumber.innerText = workers[written_nums[displayedUpgrade]].number;
 			upgradePrice.innerHTML = largeUnits(workers[written_nums[displayedUpgrade]].price);
@@ -164,11 +164,11 @@ function changeUpgrade(mode) {
 	} else if(!mode && displayedUpgrade < Object.keys(workers).length - 1 && animating == false) {
 		displayedUpgrade += 1;
 		animating = true;
-		upgradeName.style.animation = "middleToTop 0.2s linear";
-		upgradePrice.style.animation = "middleToTop 0.2s linear";
+		upgradeName.style.animation = "middleToTop 0.1s linear";
+		upgradePrice.style.animation = "middleToTop 0.1s linear";
 		setTimeout(() => {
-			upgradeName.style.animation = "bottomToMiddle 0.2s linear";
-			upgradePrice.style.animation = "bottomToMiddle 0.2s linear";
+			upgradeName.style.animation = "bottomToMiddle 0.1s linear";
+			upgradePrice.style.animation = "bottomToMiddle 0.1s linear";
 			upgradeName.innerText = workers[written_nums[displayedUpgrade]].name;
 			upgradeNumber.innerText = workers[written_nums[displayedUpgrade]].number;
 			upgradePrice.innerHTML = largeUnits(workers[written_nums[displayedUpgrade]].price);
