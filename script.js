@@ -78,6 +78,8 @@ function buttondiamond() {
 	refreshdiamonds();
 };
 
+diamondspan.addEventListener('click', buttondiamond);
+
 function buy() {
 	if(workers[written_nums[displayedUpgrade]] == null) {
 		console.log(workers[written_nums[displayedUpgrade]]);

@@ -10,21 +10,12 @@ html, body {
   font-family: "Uchen", serif;
   min-height: 100%;
   cursor: default;
+  user-select: none;
 }
 
 * {
   -webkit-transition: 250ms ease;
   transition: 250ms ease;
-}
-
-::-moz-selection {
-  background: black;
-  color: white;
-}
-
-::selection {
-  background: black;
-  color: white;
 }
 
 .nojs {
@@ -60,6 +51,10 @@ html, body {
   border: 5px solid #252525;
   border-radius: 2px;
   width: 400px;
+}
+.numbers h1:hover {
+  padding-left: 40px;
+  padding-right: 20px;
 }
 
 .upgrades {
