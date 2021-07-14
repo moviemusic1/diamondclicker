@@ -159,8 +159,8 @@ function changeUpgrade(mode) {
 			upgradeName.innerText = workers[written_nums[displayedUpgrade]].name;
 			upgradeNumber.innerText = workers[written_nums[displayedUpgrade]].number;
 			upgradePrice.innerHTML = largeUnits(workers[written_nums[displayedUpgrade]].price);
-			setTimeout(() => { animating = false; }, 200);
-		}, 200);
+			setTimeout(() => { animating = false; }, 100);
+		}, 100);
 	} else if(!mode && displayedUpgrade < Object.keys(workers).length - 1 && animating == false) {
 		displayedUpgrade += 1;
 		animating = true;
@@ -172,8 +172,8 @@ function changeUpgrade(mode) {
 			upgradeName.innerText = workers[written_nums[displayedUpgrade]].name;
 			upgradeNumber.innerText = workers[written_nums[displayedUpgrade]].number;
 			upgradePrice.innerHTML = largeUnits(workers[written_nums[displayedUpgrade]].price);
-			setTimeout(() => { animating = false; }, 200);
-		}, 200);
+			setTimeout(() => { animating = false; }, 100);
+		}, 100);
 	}
 };
 

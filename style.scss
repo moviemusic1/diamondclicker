@@ -10,6 +10,7 @@ html, body {
   color: #272727;
   font-family: 'Uchen', serif;
   min-height: 100%;
+  cursor: default;
 }
 
 * {
@@ -46,28 +47,20 @@ html, body {
   }
 }
 
-.middle {
+.numbers {
+  background: #fff;
+  text-align: left;
   position: absolute;
-  left: 50%;
-  top: 40%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  padding: 20px;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
 
-  .numbers {
-    width: 100%;
-    background: #fff;
-    text-align: center;
-
-    h1 {
-      font-size: 90px;
-      margin-top: 75px;
-      margin-bottom: 80px;
-    }
-
-    h3 {
-      margin-top: -90px;
-    }
+  h1 {
+    font-size: 90px;
+    margin: 0;
+    padding: 10px 30px;
+    border: 5px solid #252525;
+    border-radius: 2px;
   }
 }
 
