@@ -213,12 +213,6 @@ input:hover {
   color: black;
 }
 
-.btns {
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
-}
-
 .pressed_plus {
   background: #ddd !important;
 }

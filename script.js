@@ -53,13 +53,8 @@ const upgradeName = select('.upgrade-name');
 const upgradePrice = select('.upgrade-price');
 const upgradeNumber = select('.upgrade-number');
 
-let btns = [],
-	btn_default_values = ['Get diamonds', 'Upgrade button', 'Miner', 'Upgraded miner', 'Golden miner', 'Magician', 'Scientist', 'Mining robot', 'Expert miner group', 'Mining machine', 'Upgraded mining machine', 'Ultimate diamond maker'],
+let btn_default_values = ['Get diamonds', 'Upgrade button', 'Miner', 'Upgraded miner', 'Golden miner', 'Magician', 'Scientist', 'Mining robot', 'Expert miner group', 'Mining machine', 'Upgraded mining machine', 'Ultimate diamond maker'],
 	written_nums = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
-
-for(let i = 1; i < 13; i++) {
-	btns.push(select('#btn' + i));
-}
 
 let workers = {
 	one: 	{ number: 0, price: 30, 			second: 10, 				name: 'Miner' },
@@ -76,21 +71,10 @@ let workers = {
 
 function refreshdiamonds() {
 	diamondspan.innerHTML = largeUnits(Number(dianum.toFixed()));
-
-	btns[0].value = factor;
-	btns[1].value = factor * factor;
 };
 
 function buttondiamond() {
 	dianum += factor;
-	refreshdiamonds();
-};
-
-function upgradebutton() {
-	if(dianum >= factor * factor) {
-		dianum -= factor * factor;
-		factor += 1;
-	}
 	refreshdiamonds();
 };
 
