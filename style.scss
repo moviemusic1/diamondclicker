@@ -1,19 +1,21 @@
 @font-face {
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-weight: 700;
-  src: url("font/Poppins-Black.ttf");
+  src: url('font/Poppins-Black.ttf')
 }
+
 @font-face {
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-weight: 400;
-  src: url("font/Poppins-Regular.ttf");
+  src: url('font/Poppins-Regular.ttf')
 }
+
 html, body {
   width: 100%;
   overflow-x: hidden;
   background: #fff;
   color: #272727;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   min-height: 100%;
 }
 
@@ -41,13 +43,14 @@ html, body {
   top: 0;
   z-index: 100;
   overflow: hidden;
-}
-.nojs .nojs-inner {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+
+  .nojs-inner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
 }
 
 .middle {
@@ -55,21 +58,24 @@ html, body {
   left: 50%;
   top: 40%;
   -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   padding: 20px;
-}
-.middle .numbers {
-  width: 100%;
-  background: #fff;
-  text-align: center;
-}
-.middle .numbers h1 {
-  font-size: 90px;
-  margin-top: 75px;
-  margin-bottom: 80px;
-}
-.middle .numbers h3 {
-  margin-top: -90px;
+
+  .numbers {
+    width: 100%;
+    background: #fff;
+    text-align: center;
+
+    h1 {
+      font-size: 90px;
+      margin-top: 75px;
+      margin-bottom: 80px;
+    }
+
+    h3 {
+      margin-top: -90px;
+    }
+  }
 }
 
 .upgrades {
@@ -79,128 +85,142 @@ html, body {
   top: 40px;
   right: 20px;
   -webkit-box-shadow: 0 1.9rem 3.8rem rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1.9rem 3.8rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1.9rem 3.8rem rgba(0, 0, 0, 0.1);
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   -webkit-transition: 250ms ease;
   transition: 250ms ease;
   background: white;
   overflow: hidden;
-}
-.upgrades h3, .upgrades span {
-  z-index: 2;
-  -webkit-transition: 250ms ease;
-  transition: 250ms ease;
-}
-.upgrades .upgrade-name {
-  position: absolute;
-  left: 25%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  color: #555;
-}
-.upgrades .upgrade-number {
-  position: absolute;
-  left: 5%;
-  bottom: 30%;
-  z-index: 8;
-  -webkit-transform: translate(-50%, 50%);
-  transform: translate(-50%, 50%);
-  font-weight: normal;
-}
-.upgrades .upgrade-price {
-  position: absolute;
-  right: 25%;
-  top: 50%;
-  -webkit-transform: translate(50%, -50%);
-  transform: translate(50%, -50%);
-  color: #ddd;
-}
-.upgrades .upgradeup, .upgrades .upgradedown {
-  width: 10px;
-  height: 10px;
-  border-top: 5px solid;
-  border-right: 5px solid;
-  position: absolute;
-  right: 5%;
-  border-color: white;
-  z-index: 5;
-  cursor: pointer;
-  -webkit-transition: 250ms ease;
-  transition: 250ms ease;
-}
-.upgrades .upgradeup:hover, .upgrades .upgradedown:hover {
-  border-color: #bbb;
-  opacity: 0.5;
-}
-.upgrades .upgradeup {
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  top: 30%;
-}
-.upgrades .upgradedown {
-  -webkit-transform: rotate(135deg);
-  transform: rotate(135deg);
-  bottom: 30%;
-}
-.upgrades .upgradeplus {
-  width: 40px;
-  height: 40px;
-  background: #fff;
-  border-radius: 50%;
-  position: absolute;
-  left: 5%;
-  top: 30%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  z-index: 5;
-  -webkit-transition: 250ms ease;
-  transition: 250ms ease;
-}
-.upgrades .upgradeplus:hover {
-  opacity: 0.8;
-}
-.upgrades .upgradeplus div {
-  width: 20px;
-  height: 3px;
-  background: black;
-  cursor: pointer;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-.upgrades .upgradeplus div:nth-child(2) {
-  -webkit-transform: translate(-50%, -50%) rotate(90deg);
-  transform: translate(-50%, -50%) rotate(90deg);
-}
-.upgrades .upgradebg {
-  background: black;
-  width: 50%;
-  height: 100px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  -webkit-transition: 250ms ease;
-  transition: 250ms ease;
-}
-.upgrades .upgradeborder {
-  border-right: 0px solid black;
-  width: 50%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
+
+  h3, span {
+    z-index: 2;
+    -webkit-transition: 250ms ease;
+    transition: 250ms ease;
+  }
+
+  .upgrade-name {
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    color: #555;
+  }
+
+  .upgrade-number {
+    position: absolute;
+    left: 5%;
+    bottom: 30%;
+    z-index: 8;
+    -webkit-transform: translate(-50%, 50%);
+            transform: translate(-50%, 50%);
+    font-weight: normal;
+  }
+
+  .upgrade-price {
+    position: absolute;
+    right: 25%;
+    top: 50%;
+    -webkit-transform: translate(50%, -50%);
+            transform: translate(50%, -50%);
+    color: #ddd;
+  }
+
+  .upgradeup, .upgradedown {
+    width: 10px;
+    height: 10px;
+    border-top: 5px solid;
+    border-right: 5px solid;
+    position: absolute;
+    right: 5%;
+    border-color: white;
+    z-index: 5;
+    cursor: pointer;
+    -webkit-transition: 250ms ease;
+    transition: 250ms ease;
+
+    &:hover {
+      border-color: #bbb;
+      opacity: 0.5;
+    }
+  }
+
+  .upgradeup {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    top: 30%;
+  }
+
+  .upgradedown {
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+    bottom: 30%;
+  }
+
+  .upgradeplus {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    left: 5%;
+    top: 30%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 5;
+    -webkit-transition: 250ms ease;
+    transition: 250ms ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    div {
+      width: 20px;
+      height: 3px;
+      background: black;
+      cursor: pointer;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+
+      &:nth-child(2) {
+        -webkit-transform: translate(-50%, -50%) rotate(90deg);
+                transform: translate(-50%, -50%) rotate(90deg);
+      }
+    }
+  }
+
+  .upgradebg {
+    background: black;
+    width: 50%;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    -webkit-transition: 250ms ease;
+    transition: 250ms ease;
+  }
+
+  .upgradeborder {
+    border-right: 0px solid black;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
 }
 
 h1 {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
 }
 
@@ -211,17 +231,18 @@ input {
   color: whitesmoke;
   -webkit-transition: 250ms ease;
   transition: 250ms ease;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 800;
   cursor: pointer;
   border: 3px solid black;
   border-radius: 20px;
   height: 80px;
   font-size: 17px;
-}
-input:hover {
-  background: whitesmoke;
-  color: black;
+
+  &:hover {
+    background: whitesmoke;
+    color: black;
+  }
 }
 
 .btns {
@@ -239,76 +260,87 @@ input:hover {
     top: -50%;
   }
 }
+
 @keyframes middleToTop {
   to {
     top: -50%;
   }
 }
+
 @-webkit-keyframes bottomToMiddle {
   from {
     top: 150%;
   }
 }
+
 @keyframes bottomToMiddle {
   from {
     top: 150%;
   }
 }
+
 @-webkit-keyframes middleToBottom {
   to {
     top: 150%;
   }
 }
+
 @keyframes middleToBottom {
   to {
     top: 150%;
   }
 }
+
 @-webkit-keyframes topToMiddle {
   from {
     top: -50%;
   }
 }
+
 @keyframes topToMiddle {
   from {
     top: -50%;
   }
 }
+
 @-webkit-keyframes middleToLeft {
   to {
     left: -10%;
   }
 }
+
 @keyframes middleToLeft {
   to {
     left: -10%;
   }
 }
+
 @-webkit-keyframes leftToMiddle {
   from {
     left: -10%;
   }
 }
+
 @keyframes leftToMiddle {
   from {
     left: -10%;
   }
 }
+
 @media (max-width: 750px) {
   .upgrades {
     width: 550px !important;
   }
-
   .upgrade-name {
     max-width: 160px;
   }
 }
+
 @media (max-width: 600px) {
   .upgrades {
     width: 500px !important;
     margin-bottom: 80px;
   }
-
   .numbers h1 {
     font-size: 80px !important;
     margin-top: 50px;
@@ -316,37 +348,34 @@ input:hover {
     margin-bottom: 40px;
     padding-bottom: 40px;
   }
-
   input {
     font-size: 12px;
     margin: 10px !important;
     height: 70%;
   }
 }
+
 @media (max-width: 530px) {
   #with_love_span {
     display: none;
   }
-
   .upgrades {
     width: 400px !important;
   }
-
   .upgrade-name, .upgrade-price {
     font-size: 17px !important;
     width: 90px;
   }
 }
+
 @media (max-width: 460px) {
   .upgrades {
     width: 330px !important;
     margin-bottom: 100px;
   }
-
   .middle {
     margin: 100px 0;
   }
-
   .numbers h1 {
     font-size: 50px !important;
     margin-top: -50px;
@@ -354,38 +383,33 @@ input:hover {
     margin-bottom: 55px;
     padding-bottom: 55px;
   }
-
   .numbers h3 {
     font-size: 16px !important;
   }
 }
+
 @media (max-width: 350px) {
   .upgrades {
     width: 250px !important;
   }
-
   .upgrade-name {
     margin-left: 5px;
   }
-
   .upgrade-name, .upgrade-price {
     font-size: 15px !important;
     width: 70px;
   }
 }
+
 @media (max-width: 250px) {
   .upgrades {
     width: 200px !important;
   }
-
   .upgrade-name {
     margin-left: 5px;
   }
-
   .upgrade-name, .upgrade-price {
     font-size: 13px !important;
     width: 50px;
   }
 }
-
-/*# sourceMappingURL=style.css.map */
