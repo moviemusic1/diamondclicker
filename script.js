@@ -133,7 +133,7 @@ function secondinterval() {
 	let diapersec = 0;
 	for(let i = 0; i < 10; i++) {
 		dianum += (workers[written_nums[i]].second * workers[written_nums[i]].number) / 10;
-		diapersec += (workers[written_nums[i]].second * workers[written_nums[i]].number) / 10;
+		diapersec += workers[written_nums[i]].second * workers[written_nums[i]].number;
 	}
 	diapersecspan.innerHTML = largeUnits(diapersec);
 	refreshdiamonds();
