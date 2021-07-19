@@ -58,17 +58,10 @@ let btn_default_values = ['Get diamonds', 'Upgrade button', 'Miner', 'Upgraded m
 		written_nums = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
 
 let workers = {
-	one: 	{ number: 0, price: 30, 			second: 10, 				name: 'Miner' },
-	two: 	{ number: 0, price: 1000, 			second: 250, 				name: 'Upgraded miner' },
-	three: 	{ number: 0, price: 20000, 			second: 5000, 				name: 'Golden miner' },
-	four: 	{ number: 0, price: 1000000, 			second: 25000, 				name: 'Magician' },
-	five: 	{ number: 0, price: 10000000, 			second: 250000, 			name: 'Scientist' },
-	six: 	{ number: 0, price: 1000000000,			second: 200000000, 			name: 'Mining robot' },
-	seven: 	{ number: 0, price: 500000000000, 		second: 5000000000, 			name: 'Expert miner group' },
-	eight: 	{ number: 0, price: 20000000000000, 		second: 800000000000, 			name: 'Mining machine' },
-	nine: 	{ number: 0, price: 100000000000000000, 	second: 50000000000000, 		name: 'Upgraded mining machine' },
-	ten: 	{ number: 0, price: 5000000000000000000000000, 	second: 10000000000000000000000, 	name: 'Ultimate diamond maker' }
-};
+	number: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	price: [30, 1e+3, 2e+4, 1e+6, 1e+7, 1e+9, 5e+11, 2e+13, 1e+17, 5e+24],
+	second: [10, 250, 5e+3, 25e+3, 25e+4, 2e+8, 5e+9, 8e+11, 5e+13, 1e+22]
+}
 
 function refreshdiamonds() {
 	diamondspan.innerHTML = largeUnits(Number(dianum.toFixed()));
@@ -82,14 +75,14 @@ function buttondiamond() {
 diamondspan.addEventListener('click', buttondiamond);
 
 function buy() {
-	if(workers[written_nums[displayedUpgrade]] == null) {
-		console.log(workers[written_nums[displayedUpgrade]]);
+	if(workers.price.length < displayedUpgrade + 1) {
+		alert('Error when trying to buy item \'' + (displayedUpgrade + 1) + '\'!');
 	} else {
-		if(dianum >= workers[written_nums[displayedUpgrade]].price) {
-			dianum -= workers[written_nums[displayedUpgrade]].price;
-			workers[written_nums[displayedUpgrade]].number += 1;
+		if(dianum >= workers.price[displayedUpgrade]) {
+			dianum -= workers.price[displayedUpgrade];
+			workers.number[displayedUpgrade] += 1;
 			refreshdiamonds();
-			higherprice(written_nums[displayedUpgrade]);
+			higherprice(displayedUpgrade);
 			select('.upgradeplus').classList.add('pressed_plus');
 			setTimeout(() => { select('.upgradeplus').classList.remove('pressed_plus'); }, 300);
 		} else {
@@ -99,17 +92,17 @@ function buy() {
 };
 
 function higherprice(num) {
-	if(workers[num] == null) {
-		alert("Error.");
+	if(workers.price.length < num + 1) {
+		alert('Error when trying to change the price of item \'' + (num + 1) + '\'!');
 	} else {
-		workers[num].price = Number((workers[num].price + workers[num].price * workers[num].number * 0.2).toFixed());
+		workers.price[num] = Number((workers.price[num] + workers.price[num] * workers.number[num] * 0.2).toFixed());
 		refreshprice();
 	}
 };
 
 function refreshprice() {
-	upgradeNumber.innerHTML = largeUnits(workers[written_nums[displayedUpgrade]].number);
-	upgradePrice.innerHTML = largeUnits(workers[written_nums[displayedUpgrade]].price);
+	upgradeNumber.innerHTML = largeUnits(workers.number[displayedUpgrade]);
+	upgradePrice.innerHTML = largeUnits(workers.price[displayedUpgrade]);
 };
 
 function refreshtimeuntil() {
@@ -125,8 +118,8 @@ function secondinterval() {
 
 	diapersec = 0;
 	for(let i = 0; i < 10; i++) {
-		dianum += (workers[written_nums[i]].second * workers[written_nums[i]].number) / 10;
-		diapersec += workers[written_nums[i]].second * workers[written_nums[i]].number;
+		dianum += (workers.second[i] * workers.number[i]) / 10;
+		diapersec += workers.second[i] * workers.number[i];
 	}
 	diapersecspan.innerHTML = largeUnits(diapersec);
 	refreshdiamonds();
@@ -135,9 +128,9 @@ function secondinterval() {
 
 function initUpgrades() {
 	if(displayedUpgrade !== null) {
-		upgradeName.innerText = workers[written_nums[displayedUpgrade]].name;
-		upgradeNumber.innerText = workers[written_nums[displayedUpgrade]].number;
-		upgradePrice.innerHTML = largeUnits(workers[written_nums[displayedUpgrade]].price);
+		upgradeName.innerText = 'upgrade ' + (displayedUpgrade + 1);
+		upgradeNumber.innerText = workers.number[displayedUpgrade];
+		upgradePrice.innerHTML = largeUnits(workers.price[displayedUpgrade]);
 	}
 }
 
@@ -150,12 +143,12 @@ function changeUpgrade(mode) {
 		setTimeout(() => {
 			upgradeName.style.animation = "topToMiddle 0.1s linear";
 			upgradePrice.style.animation = "topToMiddle 0.1s linear";
-			upgradeName.innerText = workers[written_nums[displayedUpgrade]].name;
-			upgradeNumber.innerText = workers[written_nums[displayedUpgrade]].number;
-			upgradePrice.innerHTML = largeUnits(workers[written_nums[displayedUpgrade]].price);
+			upgradeName.innerText = 'upgrade ' + (displayedUpgrade + 1);
+			upgradeNumber.innerText = workers.number[displayedUpgrade];
+			upgradePrice.innerHTML = largeUnits(workers.price[displayedUpgrade]);
 			setTimeout(() => { animating = false; }, 100);
 		}, 100);
-	} else if(!mode && displayedUpgrade < Object.keys(workers).length - 1 && animating == false) {
+	} else if(!mode && displayedUpgrade < workers.price.length - 1 && !animating) {
 		displayedUpgrade += 1;
 		animating = true;
 		upgradeName.style.animation = "middleToTop 0.1s linear";
@@ -163,9 +156,9 @@ function changeUpgrade(mode) {
 		setTimeout(() => {
 			upgradeName.style.animation = "bottomToMiddle 0.1s linear";
 			upgradePrice.style.animation = "bottomToMiddle 0.1s linear";
-			upgradeName.innerText = workers[written_nums[displayedUpgrade]].name;
-			upgradeNumber.innerText = workers[written_nums[displayedUpgrade]].number;
-			upgradePrice.innerHTML = largeUnits(workers[written_nums[displayedUpgrade]].price);
+			upgradeName.innerText = 'upgrade ' + (displayedUpgrade + 1);
+			upgradeNumber.innerText = workers.number[displayedUpgrade];
+			upgradePrice.innerHTML = largeUnits(workers.price[displayedUpgrade]);
 			setTimeout(() => { animating = false; }, 100);
 		}, 100);
 	}
