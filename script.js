@@ -129,8 +129,8 @@ function refreshtimeuntil() {
 		timenum = timenum / 86400;
 		timename = 'days';
 	}
-	if(timenum == 1) {
-		timename = timenum.slice(0, -1);
+	if(Math.floor(timenum) == 1) {
+		timename = timename.slice(0, -1);
 	}
 	timenum = Math.floor(timenum * 10) / 10;
 	if(!already && upgrades.number[upgrades.number.length - 1] != 0 || !already && upgrades.price[upgrades.price.length - 1] <= dianum) {
