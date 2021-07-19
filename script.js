@@ -57,7 +57,7 @@ const upgradeNumber = select('.upgrade-number');
 let btn_default_values = ['Get diamonds', 'Upgrade button', 'Miner', 'Upgraded miner', 'Golden miner', 'Magician', 'Scientist', 'Mining robot', 'Expert miner group', 'Mining machine', 'Upgraded mining machine', 'Ultimate diamond maker'],
 		written_nums = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
 
-let workers = {
+let upgrades = {
 	number: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 	price: [30, 1e+3, 2e+4, 1e+6, 1e+7, 1e+9, 5e+11, 2e+13, 1e+17, 5e+24],
 	second: [10, 250, 5e+3, 25e+3, 25e+4, 2e+8, 5e+9, 8e+11, 5e+13, 1e+22]
@@ -75,12 +75,12 @@ function buttondiamond() {
 diamondspan.addEventListener('click', buttondiamond);
 
 function buy() {
-	if(workers.price.length < displayedUpgrade + 1) {
+	if(upgrades.price.length < displayedUpgrade + 1) {
 		alert('Error when trying to buy item \'' + (displayedUpgrade + 1) + '\'!');
 	} else {
-		if(dianum >= workers.price[displayedUpgrade]) {
-			dianum -= workers.price[displayedUpgrade];
-			workers.number[displayedUpgrade] += 1;
+		if(dianum >= upgrades.price[displayedUpgrade]) {
+			dianum -= upgrades.price[displayedUpgrade];
+			upgrades.number[displayedUpgrade] += 1;
 			refreshdiamonds();
 			higherprice(displayedUpgrade);
 			select('.upgradeplus').classList.add('pressed_plus');
@@ -92,17 +92,17 @@ function buy() {
 };
 
 function higherprice(num) {
-	if(workers.price.length < num + 1) {
+	if(upgrades.price.length < num + 1) {
 		alert('Error when trying to change the price of item \'' + (num + 1) + '\'!');
 	} else {
-		workers.price[num] = Number((workers.price[num] + workers.price[num] * workers.number[num] * 0.2).toFixed());
+		upgrades.price[num] = Number((upgrades.price[num] + upgrades.price[num] * upgrades.number[num] * 0.2).toFixed());
 		refreshprice();
 	}
 };
 
 function refreshprice() {
-	upgradeNumber.innerHTML = largeUnits(workers.number[displayedUpgrade]);
-	upgradePrice.innerHTML = largeUnits(workers.price[displayedUpgrade]);
+	upgradeNumber.innerHTML = largeUnits(upgrades.number[displayedUpgrade]);
+	upgradePrice.innerHTML = largeUnits(upgrades.price[displayedUpgrade]);
 };
 
 function refreshtimeuntil() {
@@ -118,8 +118,8 @@ function secondinterval() {
 
 	diapersec = 0;
 	for(let i = 0; i < 10; i++) {
-		dianum += (workers.second[i] * workers.number[i]) / 10;
-		diapersec += workers.second[i] * workers.number[i];
+		dianum += (upgrades.second[i] * upgrades.number[i]) / 10;
+		diapersec += upgrades.second[i] * upgrades.number[i];
 	}
 	diapersecspan.innerHTML = largeUnits(diapersec);
 	refreshdiamonds();
@@ -129,8 +129,8 @@ function secondinterval() {
 function initUpgrades() {
 	if(displayedUpgrade !== null) {
 		upgradeName.innerText = 'upgrade ' + (displayedUpgrade + 1);
-		upgradeNumber.innerText = workers.number[displayedUpgrade];
-		upgradePrice.innerHTML = largeUnits(workers.price[displayedUpgrade]);
+		upgradeNumber.innerText = upgrades.number[displayedUpgrade];
+		upgradePrice.innerHTML = largeUnits(upgrades.price[displayedUpgrade]);
 	}
 }
 
@@ -144,11 +144,11 @@ function changeUpgrade(mode) {
 			upgradeName.style.animation = "topToMiddle 0.1s linear";
 			upgradePrice.style.animation = "topToMiddle 0.1s linear";
 			upgradeName.innerText = 'upgrade ' + (displayedUpgrade + 1);
-			upgradeNumber.innerText = workers.number[displayedUpgrade];
-			upgradePrice.innerHTML = largeUnits(workers.price[displayedUpgrade]);
+			upgradeNumber.innerText = upgrades.number[displayedUpgrade];
+			upgradePrice.innerHTML = largeUnits(upgrades.price[displayedUpgrade]);
 			setTimeout(() => { animating = false; }, 100);
 		}, 100);
-	} else if(!mode && displayedUpgrade < workers.price.length - 1 && !animating) {
+	} else if(!mode && displayedUpgrade < upgrades.price.length - 1 && !animating) {
 		displayedUpgrade += 1;
 		animating = true;
 		upgradeName.style.animation = "middleToTop 0.1s linear";
@@ -157,8 +157,8 @@ function changeUpgrade(mode) {
 			upgradeName.style.animation = "bottomToMiddle 0.1s linear";
 			upgradePrice.style.animation = "bottomToMiddle 0.1s linear";
 			upgradeName.innerText = 'upgrade ' + (displayedUpgrade + 1);
-			upgradeNumber.innerText = workers.number[displayedUpgrade];
-			upgradePrice.innerHTML = largeUnits(workers.price[displayedUpgrade]);
+			upgradeNumber.innerText = upgrades.number[displayedUpgrade];
+			upgradePrice.innerHTML = largeUnits(upgrades.price[displayedUpgrade]);
 			setTimeout(() => { animating = false; }, 100);
 		}, 100);
 	}
