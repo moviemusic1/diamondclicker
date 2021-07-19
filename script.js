@@ -117,9 +117,11 @@ function refreshtimeuntil() {
 
 	sec = largeUnits(Math.floor((goal - dianum) / diapersec));
 	if(goal != 0 && sec != 'Infinite') {
-		times = 'reaching ' + largeUnits(goal) + ' diamonds in ' + largeUnits(Math.floor((goal - dianum) / diapersec)) + ' seconds';
-	} else if(goal != 0 && sec == 'Infinite') {
-		times = 'get diamonds by pressing the big \'0\' below'
+		if(upgrades.price[0] > dianum) {
+			times = 'get diamonds by pressing the big \'0\' below';
+		} else {
+			times = 'reaching ' + largeUnits(goal) + ' diamonds in ' + largeUnits(Math.floor((goal - dianum) / diapersec)) + ' seconds';
+		}
 	}
 	document.querySelector('#timeuntildia').innerHTML = times;
 };
