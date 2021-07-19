@@ -2,7 +2,8 @@ let dianum = 0,
 	factor = 1,
 	displayedUpgrade = 0,
 	animating = false,
-	diapersec = 0;
+	diapersec = 0,
+	manualdiasec = 0;
 
 let select = element => document.querySelector(element);
 
@@ -69,6 +70,7 @@ function refreshdiamonds() {
 
 function buttondiamond() {
 	dianum += factor;
+	manualdiasec++;
 	refreshdiamonds();
 };
 
@@ -115,13 +117,25 @@ function refreshtimeuntil() {
 		}
 	}
 
-	sec = largeUnits(Math.floor((goal - dianum) / diapersec));
-	if(goal != 0 && sec != 'Infinite') {
-		if(upgrades.price[0] > dianum) {
-			times = 'get diamonds by pressing the big \'0\' below';
-		} else {
-			times = 'reaching ' + largeUnits(goal) + ' diamonds in ' + largeUnits(Math.floor((goal - dianum) / diapersec)) + ' seconds';
-		}
+	timenum = (goal - dianum) / diapersec;
+	let timename = 'seconds';
+	if(timenum >= 60 && timenum < 3600) {
+		timenum = timenum / 60;
+		timename = 'minutes';
+	} else if(timenum >= 3600 && timenum < 86400) {
+		timenum = timenum / 3600;
+		timename = 'hours';
+	} else if(timenum >= 86400) {
+		timenum = timenum / 86400;
+		timename = 'days';
+	}
+	timenum = Math.floor(timenum);
+	if(goal != 0 && timenum != Infinity) {
+		times = 'reaching ' + largeUnits(goal) + ' diamonds in ' + largeUnits(timenum) + ' ' + timename;
+	} else if(goal != 0 && timenum == Infinity && upgrades.price[0] > dianum) {
+		times = 'get diamonds by pressing the big \'0\' below'
+	} else if(goal != 0 && timenum == Infinity && upgrades.price[0] <= dianum) {
+		times = 'buy your first upgrade to automate the process'
 	}
 	document.querySelector('#timeuntildia').innerHTML = times;
 };
@@ -136,7 +150,7 @@ function secondinterval() {
 		dianum += (upgrades.second[i] * upgrades.number[i]) / 10;
 		diapersec += upgrades.second[i] * upgrades.number[i];
 	}
-	diapersecspan.innerHTML = largeUnits(diapersec);
+	diapersecspan.innerHTML = largeUnits(diapersec + manualdiasec);
 	refreshdiamonds();
 	refreshtimeuntil();
 };
@@ -190,9 +204,11 @@ function keyListener(e) {
 	}
 }
 
-setInterval(function() {
-	secondinterval();
-}, 100);
+setInterval(secondinterval, 100);
+
+setInterval(() => {
+	manualdiasec = 0;
+}, 1000);
 
 refreshprice();
 initUpgrades();
