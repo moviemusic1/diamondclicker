@@ -48,9 +48,8 @@ html, body {
   font-size: 90px;
   margin: 0;
   padding: 10px 30px;
-  border: 5px solid transparent;
-  border-left-color: #252525;
-  border-radius: 2px;
+  border: none;
+  border-radius: 5px;
   width: 400px;
   white-space: nowrap;
 }
