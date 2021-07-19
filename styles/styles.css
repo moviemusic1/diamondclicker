@@ -10,6 +10,9 @@ html, body {
   font-family: "Uchen", serif;
   min-height: 100%;
   cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
@@ -21,7 +24,6 @@ html, body {
 a {
   text-decoration: none;
   color: #151515;
-  background: #f8f8f8;
 }
 
 .nojs {
@@ -47,11 +49,13 @@ a {
   right: 30px;
   bottom: 20px;
   padding: 5px 15px;
-  border: 2px solid #ddd;
+  background: #e6e6ff;
+  color: #252525;
+  border-radius: 2px;
 }
 #source:hover {
-  background: #ddd;
-  color: #252525;
+  background: #252525;
+  color: #e6e6ff;
 }
 
 .numbers {
@@ -77,25 +81,15 @@ a {
 
 .upgrades {
   height: 100px;
-  width: 70%;
+  width: 100%;
   position: absolute;
-  top: 40px;
-  right: 20px;
-  -webkit-box-shadow: 0 1.9rem 3.8rem rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1.9rem 3.8rem rgba(0, 0, 0, 0.1);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-transition: 250ms ease;
-  transition: 250ms ease;
-  background: white;
+  top: 0;
+  right: 0;
+  background: #e6e6ff;
   overflow: hidden;
 }
 .upgrades h3, .upgrades span {
   z-index: 2;
-  -webkit-transition: 250ms ease;
-  transition: 250ms ease;
 }
 .upgrades .upgrade-name {
   position: absolute;
@@ -116,11 +110,19 @@ a {
 }
 .upgrades .upgrade-price {
   position: absolute;
+  right: 50%;
+  top: 50%;
+  -webkit-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+  color: #555;
+}
+.upgrades .upgrade-second {
+  position: absolute;
   right: 25%;
   top: 50%;
   -webkit-transform: translate(50%, -50%);
   transform: translate(50%, -50%);
-  color: #ddd;
+  color: #555;
 }
 .upgrades .upgradeup, .upgrades .upgradedown {
   width: 10px;
@@ -129,7 +131,7 @@ a {
   border-right: 5px solid;
   position: absolute;
   right: 5%;
-  border-color: white;
+  border-color: #555;
   z-index: 5;
   cursor: pointer;
   -webkit-transition: 250ms ease;
@@ -152,7 +154,7 @@ a {
 .upgrades .upgradeplus {
   width: 40px;
   height: 40px;
-  background: #fff;
+  background: none;
   border-radius: 50%;
   position: absolute;
   left: 5%;
@@ -181,25 +183,6 @@ a {
 .upgrades .upgradeplus div:nth-child(2) {
   -webkit-transform: translate(-50%, -50%) rotate(90deg);
   transform: translate(-50%, -50%) rotate(90deg);
-}
-.upgrades .upgradebg {
-  background: black;
-  width: 50%;
-  height: 100px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  -webkit-transition: 250ms ease;
-  transition: 250ms ease;
-}
-.upgrades .upgradeborder {
-  border-right: 0px solid black;
-  width: 50%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
 }
 
 h1 {
@@ -290,97 +273,18 @@ input:hover {
     left: -10%;
   }
 }
-@media (max-width: 750px) {
-  .upgrades {
-    width: 550px !important;
-  }
-
-  .upgrade-name {
-    max-width: 160px;
-  }
-}
 @media (max-width: 600px) {
-  .upgrades {
-    width: 500px !important;
-    margin-bottom: 80px;
-  }
-
   .numbers h1 {
     font-size: 80px !important;
-    margin-top: 50px;
-    padding-top: 50px;
-    margin-bottom: 40px;
-    padding-bottom: 40px;
-  }
-
-  input {
-    font-size: 12px;
-    margin: 10px !important;
-    height: 70%;
-  }
-}
-@media (max-width: 530px) {
-  #with_love_span {
-    display: none;
-  }
-
-  .upgrades {
-    width: 400px !important;
-  }
-
-  .upgrade-name, .upgrade-price {
-    font-size: 17px !important;
-    width: 90px;
-  }
-}
-@media (max-width: 460px) {
-  .upgrades {
-    width: 330px !important;
-    margin-bottom: 100px;
-  }
-
-  .middle {
-    margin: 100px 0;
-  }
-
-  .numbers h1 {
-    font-size: 50px !important;
-    margin-top: -50px;
-    padding-top: -50px;
-    margin-bottom: 55px;
-    padding-bottom: 55px;
   }
 
   .numbers h3 {
-    font-size: 16px !important;
+    font-size: 16px;
   }
 }
-@media (max-width: 350px) {
-  .upgrades {
-    width: 250px !important;
-  }
-
-  .upgrade-name {
-    margin-left: 5px;
-  }
-
-  .upgrade-name, .upgrade-price {
-    font-size: 15px !important;
-    width: 70px;
-  }
-}
-@media (max-width: 250px) {
-  .upgrades {
-    width: 200px !important;
-  }
-
-  .upgrade-name {
-    margin-left: 5px;
-  }
-
-  .upgrade-name, .upgrade-price {
-    font-size: 13px !important;
-    width: 50px;
+@media (max-width: 460px) {
+  .numbers h1 {
+    font-size: 70px !important;
   }
 }
 

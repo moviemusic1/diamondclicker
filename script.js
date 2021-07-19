@@ -43,6 +43,7 @@ const diapersecspan = select('#diapersecspan');
 const upgradeName = select('.upgrade-name');
 const upgradePrice = select('.upgrade-price');
 const upgradeNumber = select('.upgrade-number');
+const upgradeSecond = select('.upgrade-second');
 
 let upgrades = {
 	number: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -151,6 +152,7 @@ function initUpgrades() {
 		upgradeName.innerText = 'upgrade ' + (displayedUpgrade + 1);
 		upgradeNumber.innerText = upgrades.number[displayedUpgrade];
 		upgradePrice.innerHTML = largeUnits(upgrades.price[displayedUpgrade]);
+		upgradeSecond.innerHTML = largeUnits(upgrades.second[displayedUpgrade]);
 	}
 }
 
@@ -160,12 +162,15 @@ function changeViewed(mode) {
 		animating = true;
 		upgradeName.style.animation = "middleToBottom 0.1s linear";
 		upgradePrice.style.animation = "middleToBottom 0.1s linear";
+		upgradeSecond.style.animation = "middleToBottom 0.1s linear";
 		setTimeout(() => {
 			upgradeName.style.animation = "topToMiddle 0.1s linear";
 			upgradePrice.style.animation = "topToMiddle 0.1s linear";
+			upgradeSecond.style.animation = "topToMiddle 0.1s linear";
 			upgradeName.innerText = 'upgrade ' + (displayedUpgrade + 1);
 			upgradeNumber.innerText = upgrades.number[displayedUpgrade];
 			upgradePrice.innerHTML = largeUnits(upgrades.price[displayedUpgrade]);
+			upgradeSecond.innerHTML = largeUnits(upgrades.second[displayedUpgrade]);
 			setTimeout(() => { animating = false; }, 100);
 		}, 100);
 	} else if(!mode && displayedUpgrade < upgrades.price.length - 1 && !animating) {
@@ -173,12 +178,15 @@ function changeViewed(mode) {
 		animating = true;
 		upgradeName.style.animation = "middleToTop 0.1s linear";
 		upgradePrice.style.animation = "middleToTop 0.1s linear";
+		upgradeSecond.style.animation = "middleToTop 0.1s linear";
 		setTimeout(() => {
 			upgradeName.style.animation = "bottomToMiddle 0.1s linear";
 			upgradePrice.style.animation = "bottomToMiddle 0.1s linear";
+			upgradeSecond.style.animation = "bottomToMiddle 0.1s linear";
 			upgradeName.innerText = 'upgrade ' + (displayedUpgrade + 1);
 			upgradeNumber.innerText = upgrades.number[displayedUpgrade];
 			upgradePrice.innerHTML = largeUnits(upgrades.price[displayedUpgrade]);
+			upgradeSecond.innerHTML = largeUnits(upgrades.second[displayedUpgrade]);
 			setTimeout(() => { animating = false; }, 100);
 		}, 100);
 	}
