@@ -7,17 +7,6 @@ let dianum = 0,
 
 let select = element => document.querySelector(element);
 
-function add_at_n(str, n) {
-	var a = [];
-	var len, i;
-
-	for(i = 0, len = str.length; i < len; i += n) {
-		a.push(str.substr(i, n));
-	}
-
-	return a;
-};
-
 function largeUnits(r) {
 	const units = ['k', ' Mio.', ' Bio.', ' Trio.', ' Quad.', ' Quin.', ' Sext.', ' Sept.', ' Octi.', ' Noni.', ' Deci.', ' Unde.', ' Duod.', ' Tred.', ' Quatt.', ' Quind.', ' Sex.', ' Sept.', ' Octo.', ' Novem.', ' Vigin.'];
 	r = Number(r);
@@ -54,9 +43,6 @@ const diapersecspan = select('#diapersecspan');
 const upgradeName = select('.upgrade-name');
 const upgradePrice = select('.upgrade-price');
 const upgradeNumber = select('.upgrade-number');
-
-let btn_default_values = ['Get diamonds', 'Upgrade button', 'Miner', 'Upgraded miner', 'Golden miner', 'Magician', 'Scientist', 'Mining robot', 'Expert miner group', 'Mining machine', 'Upgraded mining machine', 'Ultimate diamond maker'],
-		written_nums = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
 
 let upgrades = {
 	number: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -132,7 +118,7 @@ function refreshtimeuntil() {
 	if(Math.floor(timenum) == 1) {
 		timename = timename.slice(0, -1);
 	}
-	timenum = Math.floor(timenum * 10) / 10;
+	timenum = Math.floor(timenum);
 	if(!already && upgrades.number[upgrades.number.length - 1] != 0 || !already && upgrades.price[upgrades.price.length - 1] <= dianum) {
 		times = 'reaching even more diamonds every second'
 	} else if(goal != 0 && timenum != Infinity) {
