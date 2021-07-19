@@ -19,6 +19,12 @@ html, body {
           transition: 250ms ease;
 }
 
+a {
+  text-decoration: none;
+  color: #151515;
+  background: #f8f8f8;
+}
+
 .nojs {
   width: 100%;
   height: 100%;
@@ -35,6 +41,19 @@ html, body {
     top: 50%;
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
+  }
+}
+
+#source {
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+  padding: 5px 15px;
+  border: 2px solid #ddd;
+
+  &:hover {
+    background: #ddd;
+    color: #252525;
   }
 }
 

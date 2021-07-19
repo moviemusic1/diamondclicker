@@ -120,13 +120,13 @@ function refreshtimeuntil() {
 	}
 	timenum = Math.floor(timenum);
 	if(!already && upgrades.number[upgrades.number.length - 1] != 0 || !already && upgrades.price[upgrades.price.length - 1] <= dianum) {
-		times = 'reaching even more diamonds every second'
+		times = 'Reaching even more diamonds every second'
 	} else if(goal != 0 && timenum != Infinity) {
-		times = 'reaching ' + largeUnits(goal) + ' diamonds in ' + largeUnits(timenum) + ' ' + timename;
+		times = 'Reaching ' + largeUnits(goal) + ' diamonds in ' + largeUnits(timenum) + ' ' + timename;
 	} else if(goal != 0 && timenum == Infinity && upgrades.price[0] > dianum) {
-		times = 'get diamonds by pressing the big \'0\' below'
+		times = 'Get diamonds by pressing the big \'0\' below'
 	} else if(goal != 0 && timenum == Infinity && upgrades.price[0] <= dianum) {
-		times = 'buy your first upgrade to automate the process'
+		times = 'Buy your first upgrade to automate the process'
 	}
 	document.querySelector('#timeuntildia').innerHTML = times;
 };
