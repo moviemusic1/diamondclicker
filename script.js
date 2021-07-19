@@ -106,9 +106,22 @@ function refreshprice() {
 };
 
 function refreshtimeuntil() {
-	goal = 10000;
-	times = largeUnits(Math.floor((goal - dianum) / diapersec)) + ' seconds';
-	document.querySelector('#timeuntildia').innerHTML = 'reaching ' + goal + ' diamonds in ' + times;
+	goal = 0;
+	already = false;
+	for(let i = 0; i < upgrades.number.length; i++) {
+		if(!already && upgrades.number[i] == 0 && upgrades.price[i] > dianum) {
+			already = i;
+			goal = upgrades.price[i];
+		}
+	}
+
+	sec = largeUnits(Math.floor((goal - dianum) / diapersec));
+	if(goal != 0 && sec != 'Infinite') {
+		times = 'reaching ' + largeUnits(goal) + ' diamonds in ' + largeUnits(Math.floor((goal - dianum) / diapersec)) + ' seconds';
+	} else if(goal != 0 && sec == 'Infinite') {
+		times = 'get diamonds by pressing the big \'0\' below'
+	}
+	document.querySelector('#timeuntildia').innerHTML = times;
 };
 
 function secondinterval() {
@@ -134,7 +147,7 @@ function initUpgrades() {
 	}
 }
 
-function changeUpgrade(mode) {
+function changeViewed(mode) {
 	if(mode && displayedUpgrade > 0 && animating == false) {
 		displayedUpgrade -= 1;
 		animating = true;
@@ -167,10 +180,10 @@ function changeUpgrade(mode) {
 function keyListener(e) {
 	switch(e.keyCode) {
 		case 38:
-			changeUpgrade(true);
+			changeViewed(true);
 			break;
 		case 40:
-			changeUpgrade(false);
+			changeViewed(false);
 			break;
 	}
 }
@@ -183,6 +196,6 @@ refreshprice();
 initUpgrades();
 
 select('.upgradeplus').addEventListener('click', () => { buy() });
-select('.upgradeup').addEventListener('click', () => { changeUpgrade(true) });
-select('.upgradedown').addEventListener('click', () => { changeUpgrade(false) });
+select('.upgradeup').addEventListener('click', () => { changeViewed(true) });
+select('.upgradedown').addEventListener('click', () => { changeViewed(false) });
 document.addEventListener('keyup', keyListener);
