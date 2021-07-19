@@ -1,7 +1,8 @@
 let dianum = 0,
 	factor = 1,
 	displayedUpgrade = 0,
-	animating = false;
+	animating = false,
+	diapersec = 0;
 
 let select = element => document.querySelector(element);
 
@@ -54,7 +55,7 @@ const upgradePrice = select('.upgrade-price');
 const upgradeNumber = select('.upgrade-number');
 
 let btn_default_values = ['Get diamonds', 'Upgrade button', 'Miner', 'Upgraded miner', 'Golden miner', 'Magician', 'Scientist', 'Mining robot', 'Expert miner group', 'Mining machine', 'Upgraded mining machine', 'Ultimate diamond maker'],
-	written_nums = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
+		written_nums = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
 
 let workers = {
 	one: 	{ number: 0, price: 30, 			second: 10, 				name: 'Miner' },
@@ -111,18 +112,25 @@ function refreshprice() {
 	upgradePrice.innerHTML = largeUnits(workers[written_nums[displayedUpgrade]].price);
 };
 
+function refreshtimeuntil() {
+	goal = 10000;
+	times = largeUnits(Math.floor((goal - dianum) / diapersec)) + ' seconds';
+	document.querySelector('#timeuntildia').innerHTML = 'reaching ' + goal + ' diamonds in ' + times;
+};
+
 function secondinterval() {
 	if(dianum > 1.7976931e+308) {
 		dianum = 1.7976931e+308;
 	}
 
-	let diapersec = 0;
+	diapersec = 0;
 	for(let i = 0; i < 10; i++) {
 		dianum += (workers[written_nums[i]].second * workers[written_nums[i]].number) / 10;
 		diapersec += workers[written_nums[i]].second * workers[written_nums[i]].number;
 	}
 	diapersecspan.innerHTML = largeUnits(diapersec);
 	refreshdiamonds();
+	refreshtimeuntil();
 };
 
 function initUpgrades() {
