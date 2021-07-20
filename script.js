@@ -48,7 +48,7 @@ const diamondspan = select('#diamondspan'),
 let upgrades = {
 	number: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 	price: [30, 1e+3, 2e+4, 1e+6, 1e+7, 1e+9, 5e+11, 2e+13, 1e+17, 5e+24],
-	second: [10, 250, 5e+3, 25e+3, 25e+4, 2e+8, 5e+9, 8e+11, 5e+13, 1e+22]
+	second: [5, 150, 1e+3, 25e+3, 25e+4, 2e+8, 5e+9, 8e+11, 5e+13, 1e+22]
 }
 
 function refreshdiamonds() {
