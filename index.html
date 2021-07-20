@@ -3,40 +3,32 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>DiamondClicker | A cookie clicker game by lymnyx</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<title>DiamondClicker by lymnyx</title>
+	<link rel="stylesheet" type="text/css" href="styles/styles.css">
 </head>
 <body>
 	<noscript>
 		<div class="nojs">
 			<div class="nojs-inner">
 				<h1>JavaScript disabled</h1>
-				<p>Please enable JavaScript in your browser to play DiamondClicker!</p>
+				<p>Please enable JavaScript in your browser to play <a href="https://www.github.com/lymnyx/diamondclicker/">DiamondClicker</a>!</p>
 			</div>
 		</div>
 	</noscript>
-	<div class="header">
-		<h1 class="title">DiamondClicker</h1>
+	<div class="diatitle">
+		<h1>DiamondClicker</h1>
+		<a id="source" href="https://www.github.com/lymnyx/diamondclicker/">source code</a>
 	</div>
-	<div class="middle">
-		<div class="numbers">
-			<h1 id="diamondspan">0</h1>
-			<h3>Diamonds per second: <span id="diapersecspan">0</span></h3>
-		</div>
-		<input id="btn1" class="btn" type="button" value="Get diamonds | 1" onclick="buttondiamond()">
-		<input id="btn2" class="btn" type="button" value="Upgrade button | 1" onclick="upgradebutton()">
-		<div class="upgrades">
-			<div class="upgradeplus"><div></div><div></div></div>
-			<h3><span class="upgrade-name"></span><span class="upgrade-number"></span></span><span class="upgrade-price"></span></h3>
-			<div class="upgradeup"></div>
-			<div class="upgradedown"></div>
-			<div class="upgradebg"></div>
-			<div class="upgradeborder"></div>
-		</div>
+	<div class="numbers">
+		<h3 id="timeuntildia"></h3>
+		<h1 id="diamondspan">0</h1>
+		<h3><span id="diapersecspan">0</span> diamond<span id="diapersec_s">s</span> per second</h3>
 	</div>
-	<div class="bottom">
-		<p><span class="bottom_text">Made</span><span class="bottom_text"> by </span><a href="https://www.github.com/lymnyx">lymnyx</a><span class="bottom_text">.</span></p>
+	<div class="upgrades">
+		<div class="upgradeplus"><div></div><div></div></div>
+		<h3><span class="upgrade-name"></span><span class="upgrade-number"></span></span><span class="upgrade-price"></span><span class="upgrade-second"></span></h3>
+		<div class="upgradeup"></div>
+		<div class="upgradedown"></div>
 	</div>
 	<script src="script.js"></script>
 </body>
