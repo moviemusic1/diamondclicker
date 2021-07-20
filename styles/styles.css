@@ -95,7 +95,6 @@ a {
   position: absolute;
   left: 25%;
   top: 50%;
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   color: #555;
 }
@@ -104,7 +103,6 @@ a {
   left: 5%;
   bottom: 30%;
   z-index: 8;
-  -webkit-transform: translate(-50%, 50%);
   transform: translate(-50%, 50%);
   font-weight: normal;
 }
@@ -112,7 +110,6 @@ a {
   position: absolute;
   right: 50%;
   top: 50%;
-  -webkit-transform: translate(50%, -50%);
   transform: translate(50%, -50%);
   color: #555;
 }
@@ -120,7 +117,6 @@ a {
   position: absolute;
   right: 25%;
   top: 50%;
-  -webkit-transform: translate(50%, -50%);
   transform: translate(50%, -50%);
   color: #555;
 }
@@ -134,7 +130,6 @@ a {
   border-color: #555;
   z-index: 5;
   cursor: pointer;
-  -webkit-transition: 250ms ease;
   transition: 250ms ease;
 }
 .upgrades .upgradeup:hover, .upgrades .upgradedown:hover {
@@ -142,12 +137,10 @@ a {
   opacity: 0.5;
 }
 .upgrades .upgradeup {
-  -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
   top: 30%;
 }
 .upgrades .upgradedown {
-  -webkit-transform: rotate(135deg);
   transform: rotate(135deg);
   bottom: 30%;
 }
@@ -159,11 +152,9 @@ a {
   position: absolute;
   left: 5%;
   top: 30%;
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   cursor: pointer;
   z-index: 5;
-  -webkit-transition: 250ms ease;
   transition: 250ms ease;
 }
 .upgrades .upgradeplus:hover {
@@ -177,11 +168,9 @@ a {
   position: absolute;
   left: 50%;
   top: 50%;
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 .upgrades .upgradeplus div:nth-child(2) {
-  -webkit-transform: translate(-50%, -50%) rotate(90deg);
   transform: translate(-50%, -50%) rotate(90deg);
 }
 
@@ -213,28 +202,13 @@ input:hover {
   background: #ddd !important;
 }
 
-@-webkit-keyframes middleToTop {
-  to {
-    top: -50%;
-  }
-}
 @keyframes middleToTop {
   to {
     top: -50%;
   }
 }
-@-webkit-keyframes bottomToMiddle {
-  from {
-    top: 150%;
-  }
-}
 @keyframes bottomToMiddle {
   from {
-    top: 150%;
-  }
-}
-@-webkit-keyframes middleToBottom {
-  to {
     top: 150%;
   }
 }
@@ -243,28 +217,13 @@ input:hover {
     top: 150%;
   }
 }
-@-webkit-keyframes topToMiddle {
-  from {
-    top: -50%;
-  }
-}
 @keyframes topToMiddle {
   from {
     top: -50%;
   }
 }
-@-webkit-keyframes middleToLeft {
-  to {
-    left: -10%;
-  }
-}
 @keyframes middleToLeft {
   to {
-    left: -10%;
-  }
-}
-@-webkit-keyframes leftToMiddle {
-  from {
     left: -10%;
   }
 }
