@@ -48,7 +48,7 @@ const diamondspan = select('#diamondspan'),
 let upgrades = {
 	number: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 	price: [30, 1e+3, 2e+4, 1e+6, 1e+7, 1e+9, 5e+11, 2e+13, 1e+17, 5e+24],
-	second: [5, 150, 1e+3, 25e+3, 25e+4, 2e+8, 5e+9, 8e+11, 5e+13, 1e+22]
+	second: [2, 60, 5e+2, 25e+3, 25e+4, 2e+8, 5e+9, 8e+11, 5e+13, 1e+22]
 }
 
 function refreshdiamonds() {
@@ -84,7 +84,7 @@ function higherprice(num) {
 	if(upgrades.price.length < num + 1) {
 		alert('Error when trying to change the price of item \'' + (num + 1) + '\'!')
 	} else {
-		upgrades.price[num] = Number((upgrades.price[num] + upgrades.price[num] * upgrades.number[num] * 0.2).toFixed())
+		upgrades.price[num] = Number((upgrades.price[num] + upgrades.price[num] * upgrades.number[num] * 0.05).toFixed())
 		refreshprice()
 	}
 }
@@ -123,9 +123,9 @@ function refreshtimeuntil() {
 	if(!already && upgrades.number[upgrades.number.length - 1] != 0 || !already && upgrades.price[upgrades.price.length - 1] <= dianum) {
 		times = 'Reaching even more diamonds every second'
 	} else if(goal != 0 && timenum != Infinity) {
-		times = 'Reaching ' + largeUnits(goal) + ' diamonds in ' + largeUnits(timenum) + ' ' + timename
+		times = 'Reaching ' + largeUnits(goal) + ' diamond' + ((goal != 1) ? 's' : '') + ' in ' + largeUnits(timenum) + ' ' + timename
 	} else if(goal != 0 && timenum == Infinity && upgrades.price[0] > dianum) {
-		times = 'Get diamonds by pressing the big \'0\' below'
+		times = 'Get diamonds by pressing the big \'' + dianum + '\' below'
 	} else if(goal != 0 && timenum == Infinity && upgrades.price[0] <= dianum) {
 		times = 'Buy your first upgrade to automate the process'
 	}
@@ -142,7 +142,12 @@ function secondinterval() {
 		dianum += (upgrades.second[i] * upgrades.number[i]) / 10
 		diapersec += upgrades.second[i] * upgrades.number[i]
 	}
-	diapersecspan.innerHTML = largeUnits(diapersec + manualdiasec)
+	diapersecspan.innerText = largeUnits(diapersec + manualdiasec)
+	if(diapersec + manualdiasec == 1) {
+		document.querySelector('#diapersec_s').innerText = ''
+	} else {
+		document.querySelector('#diapersec_s').innerText = 's'
+	}
 	refreshdiamonds()
 	refreshtimeuntil()
 }
